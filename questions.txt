@@ -1,0 +1,93 @@
+﻿When would you use var in your declaration and when you wouldn’t?
+
+The only time I wouldn't use var is if I'm declaring a variable in a function or object and want it to be n the global scope.
+
+
+What is the difference between == and ===? Which one would you use?
+
+== compares value after type conversions, === compares value and type as is.  
+Which I would use depends on the context of what I'm trying to do, but if it doesn't matter I'd use === because it's faster to calculate.
+
+
+In the following function which variables and functions are in the global namespace and what is the final log of bar.
+var bar = 11;
+(function() {
+    bar = 9;
+    console.log(bar);
+    foo();
+ 
+    function foo() {
+        bar = 7;
+        console.log(bar);
+    }
+   
+    var bar = 1;
+    baz = 2;
+})();
+console.log(bar);
+
+baz is in the global namespace, bar is as well, but the second declaration of bar (line 11) using var is not.  
+The final value of bar is 11, because once the function ends, then bar reverts to its last value in the global namespace.
+
+
+Provide an example of scoping using closures and explain how and why you would use this pattern.
+
+example:
+
+function add (x) {
+	return function (y) {
+		return x + y;
+	}
+}
+
+The inner function has access to the variables in the parent function's scope, as well as its own.  
+Using closures like this helps deal with some scoping problems that might otherwise arrise.
+
+
+Explain prototypal inheritance.
+
+
+
+Write some code that translates a string (word, sentence, or paragraph) into “pig-latin” using the following rules.
+Words that start with a consonant have their first letter moved to the end of the word and the letters “ay” added to the end.
+Hello becomes Ellohay
+Words that start with a vowel have the letters “way” added to the end.
+apple becomes appleway
+Words that end in “way” are not modified.
+stairway stays as stairway
+Punctuation must remain in the same relative place from the end of the word.
+can’t becomes antca’y
+end. becomes endway.
+Hyphens are treated as two words
+this-thing becomes histay-hinstay
+Capitalization must remain in the same place.
+Beach becomes Eachbay
+McCloud becomes CcLoudmay
+
+
+see separate piglatinator.js file
+
+
+
+Given an array of n length filled randomly with 1s and 0s write some code that uses the 1s and 0s from the array 
+print a count upwards from 0 in binary until it can no longer create the next binary number. All extra 1s and 0s can be ignored.
+
+Input: 
+    [0,1,0,0,0,1,0,0,0,0,0,0,1,1,1,1,0,1,1]
+
+
+Output: 
+    0
+    1
+    10
+    11
+    100
+    101
+	
+see seperate binaryer.js file.
+	
+
+
+
+Please give a simple example of DOM reuse in JavaScript.
+The attach and detach functions in jquery.
